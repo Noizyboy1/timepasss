@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "887000537996",
+    "firebase_url": "https://time-passs-96989.firebaseio.com",
+    "project_id": "time-passs-96989",
+    "storage_bucket": "time-passs-96989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887000537996:android:25f98fe1e0ecf65f6c94a9",
+        "android_client_info": {
+          "package_name": "com.example.timepasss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887000537996-u2el8kmp50lfdkok9bve3rp3jiu74e4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4CsRc3DHFiOFOwpOvJ6bON8Y1i1ofxWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887000537996-u2el8kmp50lfdkok9bve3rp3jiu74e4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
