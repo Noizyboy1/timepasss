@@ -14,7 +14,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544/1033173712" />
+            android:value="ca-app-pub-6447107122173317~6608858650" />
 
         <activity android:name=".EarningOne"></activity>
         <activity android:name=".ProfileActivity" />
@@ -31,5 +31,6 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 </manifest>

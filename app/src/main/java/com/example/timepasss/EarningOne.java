@@ -13,10 +13,10 @@ import android.widget.Toast;
 import com.example.timepasss.Model.Userinformation;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -65,18 +65,12 @@ public class EarningOne extends AppCompatActivity {
         btnTaskFive=(Button)findViewById(R.id.taskFive);
         btnGoBack=(Button)findViewById(R.id.goBack);
 
+
+
         adOne=new InterstitialAd(this);
         adOne.setAdUnitId("ca-app-pub-6447107122173317/3188294873");
         adOne.loadAd(new AdRequest.Builder().build());
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
 
         settingUpTheFirebase();
@@ -134,21 +128,6 @@ public class EarningOne extends AppCompatActivity {
                 adOne.loadAd(new AdRequest.Builder().build());
                 if (adOne.isLoaded()){
                     adOne.show();
-                    btnTaskOne.setVisibility(View.INVISIBLE);
-                    btnTaskTwo.setVisibility(View.VISIBLE);
-                }
-                else{
-                    Toast.makeText(EarningOne.this,"Click Again After 10 Seconds",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        btnTaskThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                adOne.loadAd(new AdRequest.Builder().build());
-                if (adOne.isLoaded()){
-                    adOne.show();
                     btnTaskTwo.setVisibility(View.INVISIBLE);
                     btnTaskThree.setVisibility(View.VISIBLE);
                 }
@@ -158,7 +137,7 @@ public class EarningOne extends AppCompatActivity {
             }
         });
 
-        btnTaskFour.setOnClickListener(new View.OnClickListener() {
+        btnTaskThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 adOne.loadAd(new AdRequest.Builder().build());
@@ -173,7 +152,7 @@ public class EarningOne extends AppCompatActivity {
             }
         });
 
-        btnTaskFive.setOnClickListener(new View.OnClickListener() {
+        btnTaskFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 adOne.loadAd(new AdRequest.Builder().build());
@@ -181,6 +160,21 @@ public class EarningOne extends AppCompatActivity {
                     adOne.show();
                     btnTaskFour.setVisibility(View.INVISIBLE);
                     btnTaskFive.setVisibility(View.VISIBLE);
+                }
+                else{
+                    Toast.makeText(EarningOne.this,"Click Again After 10 Seconds",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnTaskFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adOne.loadAd(new AdRequest.Builder().build());
+                if (adOne.isLoaded()){
+                    adOne.show();
+                    btnTaskFour.setVisibility(View.INVISIBLE);
+                    btnGoBack.setVisibility(View.VISIBLE);
                 }
                 else{
                     Toast.makeText(EarningOne.this,"Click Again After 10 Seconds",Toast.LENGTH_SHORT).show();
