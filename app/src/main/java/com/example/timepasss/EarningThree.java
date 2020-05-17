@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,9 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Time;
-
-public class EarningTwo extends AppCompatActivity {
+public class EarningThree extends AppCompatActivity {
 
     private Button btnTaskOne;
     private Button btnGoBack;
@@ -41,23 +38,18 @@ public class EarningTwo extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener stateListener;
     String firebaseId;
-    long hours;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_earning_two);
+        setContentView(R.layout.activity_earning_three);
 
         btnTaskOne=(Button)findViewById(R.id.taskOne);
         btnGoBack=(Button)findViewById(R.id.goBack);
 
         adOne=new InterstitialAd(this);
-        adOne.setAdUnitId("ca-app-pub-3940256099942544/8691691433");
+        adOne.setAdUnitId("ca-app-pub-3940256099942544/5224354917");
         adOne.loadAd(new AdRequest.Builder().build());
-
-        editor=getSharedPreferences("SAVING TIME",MODE_PRIVATE).edit();
-        hours=new Time(System.currentTimeMillis()).getHours();
 
 
 
@@ -73,7 +65,7 @@ public class EarningTwo extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(EarningTwo.this,"ERROR"+databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(EarningThree.this,"ERROR"+databaseError.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -82,7 +74,7 @@ public class EarningTwo extends AppCompatActivity {
         adOne.setAdListener(new AdListener(){
             @Override
             public void onAdLeftApplication(){
-                Toast.makeText(EarningTwo.this,"You Got 5 Rupees",Toast.LENGTH_SHORT).show();
+                Toast.makeText(EarningThree.this,"You Got 5 Rupees",Toast.LENGTH_SHORT).show();
                 currentRupees =5;
             }
         });
@@ -100,7 +92,7 @@ public class EarningTwo extends AppCompatActivity {
                     btnGoBack.setVisibility(View.VISIBLE);
                 }
                 else{
-                    Toast.makeText(EarningTwo.this,"Click Again After 10 Seconds",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EarningThree.this,"Click Again After 10 Seconds",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -109,7 +101,7 @@ public class EarningTwo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 savingTheNewDataInFirebase();
-                startActivity(new Intent(EarningTwo.this,MainMenuActivity.class));
+                startActivity(new Intent(EarningThree.this,MainMenuActivity.class));
                 finish();
             }
         });
@@ -151,4 +143,5 @@ public class EarningTwo extends AppCompatActivity {
         firebaseId=user.getUid();
 
     }
+
 }

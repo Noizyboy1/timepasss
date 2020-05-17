@@ -54,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp=(Button) findViewById(R.id.btnRegister);
         rememberMe=(CheckBox) findViewById(R.id.checkbox);
 
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+//                finish();
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
         loginPref=getSharedPreferences("loginPrefs",MODE_PRIVATE);
         prefs=loginPref.edit();
@@ -75,13 +83,7 @@ public class MainActivity extends AppCompatActivity {
             rememberMe.setChecked(true);
         }
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SignUpActivity.class));
-//                finish();
-            }
-        });
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

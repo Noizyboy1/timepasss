@@ -46,7 +46,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="100"
+                        android:text="0"
                         android:textSize="25sp"
                         android:id="@+id/userRupees"
                         android:textStyle="bold"
@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="100"
+                        android:text="0"
                         android:textSize="25sp"
                         android:textColor="#000"
                         android:id="@+id/userPoints"
@@ -117,13 +117,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginRight="10dp"
+                android:id="@+id/btnLearn"
                 android:background="@drawable/back_btn"
                 android:textColor="@android:color/white"
-                android:id="@+id/btnEarning1"
                 android:textSize="20sp"
                 android:layout_marginLeft="10dp"
-                android:text="Earning 1" />
+                android:text="Learn" />
+
+
 
         </LinearLayout>
 
@@ -140,6 +141,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/back_btn"
+                android:textColor="@android:color/white"
+                android:id="@+id/btnEarning1"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:text="Earning 1" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:id="@+id/btnEarning2"
                 android:background="@drawable/back_btn"
                 android:textColor="@android:color/white"
@@ -147,17 +160,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Earning 2" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
-                android:id="@+id/btnGetPayment"
-                android:background="@drawable/back_btn"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:text="Get Payment" />
+
 
         </LinearLayout>
 
@@ -174,24 +177,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/btnLearn"
+                android:id="@+id/btnEarning3"
                 android:background="@drawable/back_btn"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="10dp"
-                android:text="Learn" />
+                android:text="Earning 3" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"
-                android:id="@+id/btnContactUs"
+                android:id="@+id/btnGetPayment"
                 android:background="@drawable/back_btn"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="10dp"
-                android:text="Contact Us" />
+                android:text="Get Payment" />
+
 
         </LinearLayout>
 
@@ -208,12 +212,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/btnVideo"
+                android:layout_marginRight="10dp"
+                android:id="@+id/btnContactUs"
                 android:background="@drawable/back_btn"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="10dp"
-                android:text="Watch Video" />
+                android:text="Contact Us" />
 
             <Button
                 android:layout_width="match_parent"

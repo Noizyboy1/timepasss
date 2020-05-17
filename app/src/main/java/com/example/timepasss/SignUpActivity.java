@@ -24,48 +24,48 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignUpActivity extends AppCompatActivity {
-
     private EditText etEmail;
-    private EditText etPassword;
+    private  EditText etPassword;
     private EditText etName;
-    private EditText etMobile;
+    private  EditText etMobile;
 
     private Button btnRegister;
 
-    private FirebaseDatabase userInfoDatabase;
+    public static final String TAG = "SignUpActivity";
+
+    //Firebase
+    private  FirebaseDatabase userInfoDatabase;
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-    private static final String TAG="SignUpActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        etEmail=(EditText)findViewById(R.id.etEmail);
-        etPassword=(EditText)findViewById(R.id.etPassword);
-        etMobile=(EditText)findViewById(R.id.etNumber);
-        etName=(EditText)findViewById(R.id.etName);
+        etEmail=findViewById(R.id.etEmail);
+        etPassword=findViewById(R.id.etPassword);
+        etMobile=findViewById(R.id.etNumber);
+        etName=findViewById(R.id.etName);
 
-        btnRegister=(Button)findViewById(R.id.btnSignUp);
-
-        userInfoDatabase=FirebaseDatabase.getInstance();
-        reference=userInfoDatabase.getReference("Users");
-        mAuth=FirebaseAuth.getInstance();
-        currentUser=mAuth.getCurrentUser();
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnRegister=(Button) findViewById(R.id.btnSignUp);
+        btnRegister.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 authenticationListener();
                 startActivity(new Intent(SignUpActivity.this,MainActivity.class));
                 finish();
             }
         });
-    }
 
+        userInfoDatabase=FirebaseDatabase.getInstance();
+        reference=userInfoDatabase.getReference("Users");
+        mAuth=FirebaseAuth.getInstance();
+        currentUser=mAuth.getCurrentUser();
+    }
     private void authenticationListener(){
         final String email=etEmail.getText().toString();
         final String password=etPassword.getText().toString();
@@ -77,16 +77,15 @@ public class SignUpActivity extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    Userinformation userInformation=new Userinformation();
+                    userInformation.setEmail(email);
+                    userInformation.setPassword(password);
+                    userInformation.setName(etName.getText().toString());
+                    userInformation.setNumber(etMobile.getText().toString());
+                    userInformation.setRupees(0);
+                    userInformation.setPoints(0);
 
-                    Userinformation userinformation=new Userinformation();
-                    userinformation.setEmail(email);
-                    userinformation.setPassword(password);
-                    userinformation.setName(etName.getText().toString());
-                    userinformation.setNumber(etMobile.getText().toString());
-                    userinformation.setPoints(0);
-                    userinformation.setRupees(0);
-
-                    reference.child(currentUser.getUid()).setValue(userinformation).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    reference.child(currentUser.getUid()).setValue(userInformation).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(SignUpActivity.this,"Successfully Registered",Toast.LENGTH_SHORT).show();

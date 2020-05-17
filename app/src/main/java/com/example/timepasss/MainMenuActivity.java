@@ -27,6 +27,8 @@ public class MainMenuActivity extends AppCompatActivity {
     private Button btnProfile;
     private Button btnEarningOne;
     private Button btnEarningTwo;
+    private Button btnEarningThree;
+    private Button btnGetPayment;
     private TextView currentPoints;
     private TextView currentRupees;
 
@@ -56,6 +58,8 @@ public class MainMenuActivity extends AppCompatActivity {
         currentRupees=(TextView)findViewById(R.id.userRupees);
         btnEarningOne=(Button)findViewById(R.id.btnEarning1);
         btnEarningTwo=(Button)findViewById(R.id.btnEarning2);
+        btnEarningThree=(Button)findViewById(R.id.btnEarning3);
+        btnGetPayment=(Button)findViewById(R.id.btnGetPayment) ;
 
         preferences=getSharedPreferences("SAVING_TIME",MODE_PRIVATE);
         hours=new Time(System.currentTimeMillis()).getHours();
@@ -90,6 +94,18 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenuActivity.this,EarningTwo.class));
+            }
+        });
+        btnEarningThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenuActivity.this,EarningThree.class));
+            }
+        });
+        btnGetPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenuActivity.this,GetPaymentActivity.class));
             }
         });
     }
